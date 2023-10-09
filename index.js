@@ -7,8 +7,38 @@ const mysql = require("mysql");
 app.use(cors());
 app.use(express.json());
 
+app.post('/cms/api/v1/activate-code/create', (req, res) => {
+    const data = {
+        activate_code: '1234-1234-1234'
+    };
+    res.json({ status_code: 200, message: 'success', data: data });
+});
+
+app.post('/utility/api/v1/customer/register', (req, res) => {
+    console.log('data send ' + req.body);
+    res.json({ status_code: 200, message: 'success' });
+});
+
+app.post('/utility/api/v1/activate-code/activate', (req, res) => {
+    console.log('activate send ' + req.body.activate_code);
+    const data = {
+        expired_time: null,
+        is_expired: false,
+        activated: false,
+        additional_detail: {
+            company: '000'
+        }
+    };
+    res.json({ status_code: 200, message: 'success', data: data });
+});
+
+app.post('/payment/api/v1/transaction/create', (req, res) => {
+    console.log('data send ' + req.body);
+    res.json({ status_code: 200, message: 'success', payment_url: 'https://psipay.bangkokbank.com/b2c/eng/payment/payForm.jsp?merchantId=9682&amount=123.0&orderRef=0000000001&currCode=764&successUrl=https://store-dev.axonstech.com/success/SuccessPage&failUrl=https://store-dev.axonstech.com/payment/PaymentPage&cancelUrl=https://store-dev.axonstech.com/payment/PaymentPage&payType=N&lang=T&remark=ทดสอบจ้า' });
+});
+
 app.post('/payment/api/v1/transaction/query', (req, res) => {
-    console.log('data send ' + req.body.ref_doc_id);
+    console.log('ref doc id send ' + req.body.ref_doc_id);
     const data = {
         price_plan_name: 'LITE Version',
         price_plan_amount: 399.00,
