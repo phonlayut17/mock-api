@@ -59,16 +59,16 @@ app.get('/utility/api/v1/customer/profile', (req, res) => {
         phone_number: '0989998999',
         email: 'bbb@mail.com',
         address: [{
-            "address_text": 'ถ.ประชาร่วมใจ',
-            "country_code": 'TH',
-            "country_text": "ไทย",
-            "sub_district_code": '104605',
-            "sub_district_text": 'ช้างเผือก',
-            "district_code": '104600',
-            "district_text": 'เมืองเชียงใหม่',
-            "province_code": '100000',
-            "province_text": 'เชียงใหม่',
-            "post_code": '10510'
+            address_text: 'ถ.ประชาร่วมใจ',
+            country_code: 'TH',
+            country_text: 'ไทย',
+            sub_district_code: '104605',
+            sub_district_text: 'ทรายกองดินใต้',
+            district_code: '104600',
+            district_text: 'คลองสามวา',
+            province_code: '100000',
+            province_text: 'กรุงเทพฯ',
+            post_code: '10510'
         }]
     };
     res.json({ status_code: 200, message: 'success', data: data });
